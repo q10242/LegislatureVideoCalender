@@ -1661,7 +1661,7 @@
                         <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-12?page=1">2012-03-12</a></li>
                         <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-07?page=1">2012-03-07</a></li>
                     </ul>
-
+                    <div class="calendar"></div>
                     <div class="data-list committee-data-list" style="display:none">
                         <p class="results-info">
                             搜尋結果：主辦單位=<span id="spanComt" class="number"></span>, 日期=<span id="spanDate"
@@ -1793,19 +1793,32 @@
     </div>
     <div class="mobile-bg"></div>
 </body>
-<link rel="stylesheet" type="text/css" href="hello.week.min.css" />
-<link rel="stylesheet" type="text/css" href="hello.week.theme.min.css" />
 
-<script type="text/javascript" src="hello.week.min.js"></script>
 
-<script>
-    new HelloWeek();
+
+<script src="scripts/hello.week.min.js"></script>
+<link href="css/hello.week.min.css" rel="stylesheet" />
+<link href="css/hello.week.theme.min.css" rel="stylesheet" />
+
+
+<script  type="module">
+
     const dates  = document.querySelectorAll('ul.table li')
     if(dates) {
-         
+        document.querySelector('ul.table').remove()
+        
+        const calendar = new HelloWeek({
+            selector: '.calendar',
+            langFolder: './langs/', // cors error
+            locked: true,
+            onNavigation: () => {
+                calendar.setLocked(false);
+                calendar.update();
+            },
+        });
         dates.forEach(function(element) {
             var link = element.getElementsByTagName('a')
-            console.log(link)
+        
         })
     }
 
