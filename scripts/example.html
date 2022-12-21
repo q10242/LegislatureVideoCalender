@@ -1,0 +1,1814 @@
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="FkIvwSXLcNxChUpowRFICt4hH4v2OiHtDBr8xe2s">
+    <title>會議隨選 - 立法院 議事轉播 網際網路多媒體隨選視訊(ivod)系統</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="copyright" content="立法院議事轉播網際網路多媒體隨選視訊(ivod)系統">
+    <meta name="author" content="Fujitsu Taiwan">
+    <meta name="robots" content="all">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+    <meta name="google-site-verification" content="YkSFrOy2scuOULcqebbsXQpgK6g7jogUf1nA_-an4m0">
+    <link rel="shortcut icon" href="https://ivod.ly.gov.tw/images/favicon.ico">
+    <link rel="alternate" hreflang="zh-Hant" href="https://ivod.ly.gov.tw/">
+    <link href="https://ivod.ly.gov.tw/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+    <link href="https://ivod.ly.gov.tw/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://ivod.ly.gov.tw/css/app.css" rel="stylesheet">
+    <link href="https://ivod.ly.gov.tw/css/video-js.min.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-165827542-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165827542-1');
+    </script>
+    <script>
+        var mobile = "https://ivod.ly.gov.tw/_partials/mobile";
+    </script>
+    <script src="https://ivod.ly.gov.tw/scripts/jquery.min.js"></script>
+    <script src="https://ivod.ly.gov.tw/scripts/jquery-ui.min.js"></script>
+    <script src="https://ivod.ly.gov.tw/scripts/common.js"></script>
+    <script src="https://ivod.ly.gov.tw/scripts/chgFontSize.js"></script>
+    <script src="https://ivod.ly.gov.tw/scripts/ellipsis.js"></script>
+    <script src="https://ivod.ly.gov.tw/scripts/hightlighter.js"></script>
+    <script src="https://ivod.ly.gov.tw/scripts/clappr.min.js "></script>
+    <style type="text/css">
+        .cc-controls[data-cc-controls] {
+            float: right;
+            position: relative;
+            display: none;
+        }
+
+        .cc-controls[data-cc-controls].available {
+            display: block;
+        }
+
+        .cc-controls[data-cc-controls] .cc-button {
+            padding: 6px !important;
+        }
+
+        .cc-controls[data-cc-controls] .cc-button.enabled {
+            display: block;
+            opacity: 1.0;
+        }
+
+        .cc-controls[data-cc-controls] .cc-button.enabled:hover {
+            opacity: 1.0;
+            text-shadow: none;
+        }
+
+        .cc-controls[data-cc-controls]>ul {
+            list-style-type: none;
+            position: absolute;
+            bottom: 25px;
+            border: 1px solid black;
+            display: none;
+            background-color: #e6e6e6;
+        }
+
+        .cc-controls[data-cc-controls] li {
+            font-size: 10px;
+        }
+
+        .cc-controls[data-cc-controls] li[data-title] {
+            background-color: #c3c2c2;
+            padding: 5px;
+        }
+
+        .cc-controls[data-cc-controls] li a {
+            color: #444;
+            padding: 2px 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .cc-controls[data-cc-controls] li a:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        .cc-controls[data-cc-controls] li a:hover a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .cc-controls[data-cc-controls] li.current a {
+            color: #f00;
+        }
+    </style>
+    <style type="text/css">
+        .dvr-controls[data-dvr-controls] {
+            display: inline-block;
+            float: left;
+            color: #fff;
+            line-height: 32px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 6px;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-info {
+            cursor: default;
+            font-family: "Roboto", "Open Sans", Arial, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-info:before {
+            content: "";
+            display: inline-block;
+            position: relative;
+            width: 7px;
+            height: 7px;
+            border-radius: 3.5px;
+            margin-right: 3.5px;
+            background-color: #ff0101;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-info.disabled {
+            opacity: 0.3;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-info.disabled:before {
+            background-color: #fff;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-button {
+            cursor: pointer;
+            outline: none;
+            display: none;
+            border: 0;
+            color: #fff;
+            background-color: transparent;
+            height: 32px;
+            padding: 0;
+            opacity: 0.7;
+            font-family: "Roboto", "Open Sans", Arial, sans-serif;
+            text-transform: uppercase;
+            transition: all 0.1s ease;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-button:before {
+            content: "";
+            display: inline-block;
+            position: relative;
+            width: 7px;
+            height: 7px;
+            border-radius: 3.5px;
+            margin-right: 3.5px;
+            background-color: #fff;
+        }
+
+        .dvr-controls[data-dvr-controls] .live-button:hover {
+            opacity: 1;
+            text-shadow: rgba(255, 255, 255, 0.75) 0 0 5px;
+        }
+
+        .dvr .dvr-controls[data-dvr-controls] .live-info {
+            display: none;
+        }
+
+        .dvr .dvr-controls[data-dvr-controls] .live-button {
+            display: block;
+        }
+
+        .dvr.media-control.live[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] .bar-fill-2[data-seekbar] {
+            background-color: #005aff;
+        }
+
+        .media-control.live[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] .bar-fill-2[data-seekbar] {
+            background-color: #ff0101;
+        }
+    </style>
+    <style type="text/css">
+        [data-player] .player-error-screen {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #CCCACA;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        [data-player] .player-error-screen__content[data-error-screen] {
+            font-size: 14px;
+            color: #CCCACA;
+            margin-top: 45px;
+        }
+
+        [data-player] .player-error-screen__title[data-error-screen] {
+            font-weight: bold;
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+        [data-player] .player-error-screen__message[data-error-screen] {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        [data-player] .player-error-screen__code[data-error-screen] {
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+        [data-player] .player-error-screen__reload {
+            cursor: pointer;
+            width: 30px;
+            margin: 15px auto 0 !important;
+        }
+    </style>
+    <style type="text/css">
+        .media-control-notransition {
+            transition: none !important;
+        }
+
+        .media-control[data-media-control] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .media-control[data-media-control].dragging {
+            pointer-events: auto;
+            cursor: -webkit-grabbing !important;
+            cursor: grabbing !important;
+            cursor: url("closed-hand.cur"), move;
+        }
+
+        .media-control[data-media-control].dragging * {
+            cursor: -webkit-grabbing !important;
+            cursor: grabbing !important;
+            cursor: url("closed-hand.cur"), move;
+        }
+
+        .media-control[data-media-control] .media-control-background[data-background] {
+            position: absolute;
+            height: 40%;
+            width: 100%;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            will-change: transform, opacity;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-icon {
+            line-height: 0;
+            letter-spacing: 0;
+            speak: none;
+            color: #fff;
+            opacity: 0.5;
+            vertical-align: middle;
+            text-align: left;
+            transition: all 0.1s ease;
+        }
+
+        .media-control[data-media-control] .media-control-icon:hover {
+            color: white;
+            opacity: 0.75;
+            text-shadow: rgba(255, 255, 255, 0.8) 0 0 5px;
+        }
+
+        .media-control[data-media-control].media-control-hide .media-control-background[data-background] {
+            opacity: 0;
+        }
+
+        .media-control[data-media-control].media-control-hide .media-control-layer[data-controls] {
+            transform: translateY(50px);
+        }
+
+        .media-control[data-media-control].media-control-hide .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-scrubber[data-seekbar] {
+            opacity: 0;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] {
+            position: absolute;
+            transform: translateY(-7px);
+            bottom: 0;
+            width: 100%;
+            height: 32px;
+            font-size: 0;
+            vertical-align: middle;
+            pointer-events: auto;
+            transition: bottom 0.4s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-left-panel[data-media-control] {
+            position: absolute;
+            top: 0;
+            left: 4px;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-center-panel[data-media-control] {
+            height: 100%;
+            text-align: center;
+            line-height: 32px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-right-panel[data-media-control] {
+            position: absolute;
+            top: 0;
+            right: 4px;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button {
+            background-color: transparent;
+            border: 0;
+            margin: 0 6px;
+            padding: 0;
+            cursor: pointer;
+            display: inline-block;
+            width: 32px;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button svg {
+            width: 100%;
+            height: 22px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button svg path {
+            fill: white;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button:focus {
+            outline: none;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-play] {
+            float: left;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-pause] {
+            float: left;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-stop] {
+            float: left;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-fullscreen] {
+            float: right;
+            background-color: transparent;
+            border: 0;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator] {
+            background-color: transparent;
+            border: 0;
+            cursor: default;
+            display: none;
+            float: right;
+            height: 100%;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator].enabled {
+            display: block;
+            opacity: 1.0;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-hd-indicator].enabled:hover {
+            opacity: 1.0;
+            text-shadow: none;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-playpause] {
+            float: left;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] button.media-control-button[data-playstop] {
+            float: left;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position],
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
+            display: inline-block;
+            font-size: 10px;
+            color: white;
+            cursor: default;
+            line-height: 32px;
+            position: relative;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-position] {
+            margin: 0 6px 0 7px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration] {
+            color: rgba(255, 255, 255, 0.5);
+            margin-right: 6px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .media-control-indicator[data-duration]:before {
+            content: "|";
+            margin-right: 7px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] {
+            width: 100%;
+            height: 1px;
+            position: relative;
+            top: 12px;
+            background-color: #666666;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] .bar-fill-1[data-seekbar] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #c2c2c2;
+            transition: all 0.1s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] .bar-fill-2[data-seekbar] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #005aff;
+            transition: all 0.1s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-background[data-seekbar] .bar-hover[data-seekbar] {
+            opacity: 0;
+            position: absolute;
+            top: -3px;
+            width: 5px;
+            height: 7px;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: opacity 0.1s ease;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]:hover .bar-background[data-seekbar] .bar-hover[data-seekbar] {
+            opacity: 1;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar].seek-disabled {
+            cursor: default;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar].seek-disabled:hover .bar-background[data-seekbar] .bar-hover[data-seekbar] {
+            opacity: 0;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-scrubber[data-seekbar] {
+            position: absolute;
+            transform: translateX(-50%);
+            top: 2px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            opacity: 1;
+            transition: all 0.1s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar] .bar-scrubber[data-seekbar] .bar-scrubber-icon[data-seekbar] {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+            background-color: white;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] {
+            float: right;
+            display: inline-block;
+            height: 32px;
+            cursor: pointer;
+            margin: 0 6px;
+            box-sizing: border-box;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .drawer-icon-container[data-volume] {
+            float: left;
+            bottom: 0;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .drawer-icon-container[data-volume] .drawer-icon[data-volume] {
+            background-color: transparent;
+            border: 0;
+            box-sizing: content-box;
+            width: 32px;
+            height: 32px;
+            opacity: 0.5;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .drawer-icon-container[data-volume] .drawer-icon[data-volume]:hover {
+            opacity: 0.75;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .drawer-icon-container[data-volume] .drawer-icon[data-volume] svg {
+            height: 24px;
+            position: relative;
+            top: 3px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .drawer-icon-container[data-volume] .drawer-icon[data-volume] svg path {
+            fill: white;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .drawer-icon-container[data-volume] .drawer-icon[data-volume].muted svg {
+            margin-left: 2px;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] {
+            float: left;
+            position: relative;
+            overflow: hidden;
+            top: 6px;
+            width: 42px;
+            height: 18px;
+            padding: 3px 0;
+            transition: width .2s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .bar-background[data-volume] {
+            height: 1px;
+            position: relative;
+            top: 7px;
+            margin: 0 3px;
+            background-color: #666666;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .bar-background[data-volume] .bar-fill-1[data-volume] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #c2c2c2;
+            transition: all 0.1s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .bar-background[data-volume] .bar-fill-2[data-volume] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #005aff;
+            transition: all 0.1s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .bar-background[data-volume] .bar-hover[data-volume] {
+            opacity: 0;
+            position: absolute;
+            top: -3px;
+            width: 5px;
+            height: 7px;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: opacity 0.1s ease;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .bar-scrubber[data-volume] {
+            position: absolute;
+            transform: translateX(-50%);
+            top: 0px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            opacity: 1;
+            transition: all 0.1s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .bar-scrubber[data-volume] .bar-scrubber-icon[data-volume] {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2);
+            background-color: white;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .segmented-bar-element[data-volume] {
+            float: left;
+            width: 4px;
+            padding-left: 2px;
+            height: 12px;
+            opacity: 0.5;
+            box-shadow: inset 2px 0 0 white;
+            transition: transform .2s ease-out;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .segmented-bar-element[data-volume].fill {
+            box-shadow: inset 2px 0 0 #fff;
+            opacity: 1;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .segmented-bar-element[data-volume]:nth-of-type(1) {
+            padding-left: 0;
+        }
+
+        .media-control[data-media-control] .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume] .segmented-bar-element[data-volume]:hover {
+            transform: scaleY(1.5);
+        }
+
+        .media-control[data-media-control].w320 .media-control-layer[data-controls] .drawer-container[data-volume] .bar-container[data-volume].volume-bar-hide {
+            width: 0;
+            height: 12px;
+            top: 9px;
+            padding: 0;
+        }
+    </style>
+    <style type="text/css">
+        .player-poster[data-poster] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 998;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+
+        .player-poster[data-poster].clickable {
+            cursor: pointer;
+        }
+
+        .player-poster[data-poster]:hover .play-wrapper[data-poster] {
+            opacity: 1;
+        }
+
+        .player-poster[data-poster] .play-wrapper[data-poster] {
+            width: 100%;
+            height: 25%;
+            margin: 0 auto;
+            opacity: 0.75;
+            transition: opacity 0.1s ease;
+        }
+
+        .player-poster[data-poster] .play-wrapper[data-poster] svg {
+            height: 100%;
+        }
+
+        .player-poster[data-poster] .play-wrapper[data-poster] svg path {
+            fill: #fff;
+        }
+    </style>
+    <style type="text/css">
+        .seek-time[data-seek-time] {
+            position: absolute;
+            white-space: nowrap;
+            height: 20px;
+            line-height: 20px;
+            font-size: 0;
+            left: -100%;
+            bottom: 55px;
+            background-color: rgba(2, 2, 2, 0.5);
+            z-index: 9999;
+            transition: opacity 0.1s ease;
+        }
+
+        .seek-time[data-seek-time].hidden[data-seek-time] {
+            opacity: 0;
+        }
+
+        .seek-time[data-seek-time] [data-seek-time] {
+            display: inline-block;
+            color: white;
+            font-size: 10px;
+            padding-left: 7px;
+            padding-right: 7px;
+            vertical-align: top;
+        }
+
+        .seek-time[data-seek-time] [data-duration] {
+            display: inline-block;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+            padding-right: 7px;
+            vertical-align: top;
+        }
+
+        .seek-time[data-seek-time] [data-duration]:before {
+            content: "|";
+            margin-right: 7px;
+        }
+    </style>
+    <style type="text/css">
+        .spinner-three-bounce[data-spinner] {
+            position: absolute;
+            margin: 0 auto;
+            width: 70px;
+            text-align: center;
+            z-index: 999;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            /* center vertically */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .spinner-three-bounce[data-spinner]>div {
+            width: 18px;
+            height: 18px;
+            background-color: #FFFFFF;
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+            animation: bouncedelay 1.4s infinite ease-in-out;
+            /* Prevent first frame from flickering when animation starts */
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        .spinner-three-bounce[data-spinner] [data-bounce1] {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        .spinner-three-bounce[data-spinner] [data-bounce2] {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+
+        @-webkit-keyframes bouncedelay {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bouncedelay {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <style type="text/css">
+        .clappr-watermark[data-watermark] {
+            position: absolute;
+            min-width: 70px;
+            max-width: 200px;
+            width: 12%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .clappr-watermark[data-watermark] a {
+            outline: none;
+            cursor: pointer;
+        }
+
+        .clappr-watermark[data-watermark] img {
+            max-width: 100%;
+        }
+
+        .clappr-watermark[data-watermark-bottom-left] {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .clappr-watermark[data-watermark-bottom-right] {
+            bottom: 10px;
+            right: 42px;
+        }
+
+        .clappr-watermark[data-watermark-top-left] {
+            top: 10px;
+            left: 10px;
+        }
+
+        .clappr-watermark[data-watermark-top-right] {
+            top: 10px;
+            right: 37px;
+        }
+    </style>
+    <script src="https://ivod.ly.gov.tw/scripts/can-autoplay.min.js "></script>
+    <script src="https://ivod.ly.gov.tw/scripts/clappr-playback-rate-plugin.min.js "></script>
+    <script src="https://ivod.ly.gov.tw/scripts/vodlglt_committee.js"></script>
+</head>
+
+
+<!-- jQuery -->
+
+
+<!--[if lt IE 9]><script src="https://ivod.ly.gov.tw/scripts/html5.js"></script><![endif]-->
+
+
+
+
+
+
+
+
+
+
+<body class="ivod-lp">
+    <div class="wrapper">
+        <header>
+            <div class="accesskey" style="position:absolute;">
+                <a href="#" accesskey="U" title="上方導覽區塊">:::</a>
+            </div>
+            <!-- logo -->
+            <div class="brand">
+                <h1>
+                    <a href="https://ivod.ly.gov.tw/index" title="立法院-議事轉播 ivod 網際網路多媒體隨選視訊系統"><img
+                            src="https://ivod.ly.gov.tw/images/ivod-logo.png" alt="立法院-議事轉播 ivod 網際網路多媒體隨選視訊系統"></a>
+                </h1>
+                <noscript>您的瀏覽器不支援script語法，<bar>請按鍵盤上的Ctrl鍵+ (+)鍵放大/(-)鍵縮小來改變字型大小</noscript>
+            </div>
+            <!-- top nav -->
+            <div class="top-nav">
+                <ul>
+                    <li><a href="https://ivod.ly.gov.tw/Link/NewMedia" title="新媒體">新媒體</a></li>
+                    <li><a href="https://ivod.ly.gov.tw/Map" title="網站導覽">網站導覽</a></li>
+                    <li><a href="https://ivod.ly.gov.tw/Faq" title="常見問題">常見問題</a></li>
+                    <li><a href="https://ivod.ly.gov.tw/News" title="公告事項">公告事項</a></li>
+                    <!-- <li><a href="https://ivod.ly.gov.tw/Question" title="洽詢事項">洽詢事項</a></li> -->
+                    <li><a href="https://ivod.ly.gov.tw/Statistics" title="統計資訊">統計資訊</a></li>
+                    <!--<li><a href="http://get.adobe.com/tw/flashplayer/" title="播放器下載">播放器下載</a></li>-->
+                </ul>
+            </div>
+            <div class="search-wrap">
+                <!-- Font Size -->
+                <div class="fontSize-group" id="chgFontSizeSet">
+                    <ul class="chgFontSize">
+                        <li><a class="f1" href="javascript:chgFontSize('1');"><em>小</em></a></li>
+                        <li class="active"><a class="f2" href="javascript:chgFontSize('2');"><em>中</em></a></li>
+                        <li><a class="f3" href="javascript:chgFontSize('3');"><em>大</em></a></li>
+                    </ul>
+                </div>
+                <!-- Search -->
+                <form method="get" action="https://ivod.ly.gov.tw/GSearch" name="SearchBoxForm" id="searchForm"
+                    class="top-search">
+                    <input id="search" class="search-bar" type="text" name="q" placeholder="請輸入關鍵字...">
+                    <input type="submit" class="search-btn">
+                    <label for="search" class="site-search__icon">
+                        <svg class="icon">
+                            <use xlink:href="#icon-search"></use>
+                        </svg>
+                    </label>
+                </form>
+            </div>
+        </header>
+        <div class="main">
+            <div class="main-nav main-nav-inside">
+                <ul>
+                    <li class="main-nav-a"><a href="https://ivod.ly.gov.tw/Live" title="最新實況"><em>最新實況</em></a></li>
+                    <li class="main-nav-b"><a href="https://ivod.ly.gov.tw/Forecast" title="會議預報"><em>會議預報</em></a></li>
+                    <li class="main-nav-d"><a href="https://ivod.ly.gov.tw/Demand" title="會議隨選"><em>會議隨選</em></a></li>
+                </ul>
+            </div>
+            <div class="ivod-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="https://ivod.ly.gov.tw/index" title="首頁">首頁</a></li>
+                    <li><a href="https://ivod.ly.gov.tw/Demand" title="會議隨選">會議隨選</a></li>
+                    <li class="active"><a href="https://ivod.ly.gov.tw/Demand/ListCommittee" title="以主辦單位查詢">以主辦單位查詢</a>
+                    </li>
+                    <li id="crumbs_committee" style="">外交及國防委員會</li>
+                </ol>
+            </div>
+            <div class="page-title">
+                <div class="accesskey">
+                    <a href="#" accesskey="L" title="左方導覽區塊">:::</a>
+                </div>
+                <h2><i class="icon-20-tv"></i>會議隨選</h2>
+                <form id="select_stage_form">
+                </form>
+                <a href="#submenu" id="toggle"><span></span></a>
+                <div id="submenu">
+                    <ul>
+                        <li>
+                            以委員查詢(委員發言片段)
+                            <ul class="sub">
+                                <li><a href="javascript:void(0);" onclick="doNavigation('legislator')">依姓名</a></li>
+                                <li><a href="javascript:void(0);" onclick="doNavigation('party')">依黨籍</a></li>
+                                <li><a href="javascript:void(0);" onclick="doNavigation('area')">依選區</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="https://ivod.ly.gov.tw/Demand/ListCommittee">以主辦單位查詢</a></li>
+                        <li><a href="https://ivod.ly.gov.tw/Demand/AdvancedSearch">進階查詢</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--main-content-->
+            <div class="contents">
+                <!-- legislator-nav -->
+                <div class="contents-nav legislator-nav">
+                    <!-- 左方導覽區塊 -->
+                    <ul>
+                        <li>
+                            <a href="https://ivod.ly.gov.tw/Demand" title="以委員查詢(委員發言片段)">以委員查詢(委員發言片段)</a>
+                            <ul id="vod_menu">
+                                <li><a href="javascript:void(0);" onclick="doNavigation('legislator')"
+                                        title="依姓名">依姓名</a></li>
+                                <li><a href="javascript:void(0);" onclick="doNavigation('party')" title="依黨籍">依黨籍</a>
+                                </li>
+                                <li><a href="javascript:void(0);" onclick="doNavigation('area')" title="依選區">依選區</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active"><a href="https://ivod.ly.gov.tw/Demand/ListCommittee"
+                                title="以主辦單位查詢">以主辦單位查詢</a></li>
+                        <li><a href="https://ivod.ly.gov.tw/Demand/AdvancedSearch" title="進階查詢">進階查詢</a></li>
+                    </ul>
+                    <ul>
+                        <noscript>
+                        </noscript>
+                    </ul>
+                </div>
+                <div class="contents-body data-table committee-data-table" style="position: static;">
+                    <!-- 中央內容區塊 -->
+                    <div class="accesskey">
+                        <a href="#" accesskey="C" title="中央內容區塊">:::</a>
+                    </div>
+                    <!-- [Contents Start] -->
+                    <div class="data-finder">
+                        <label for="comtselect">主辦單位 :</label>
+                        <select name="" id="comtselect">
+                            <option value="19">院會</option>
+                            <option value="1">內政委員會</option>
+                            <option value="17" selected="">外交及國防委員會</option>
+                            <option value="5">經濟委員會</option>
+                            <option value="15">修憲委員會</option>
+                            <option value="6">財政委員會</option>
+                            <option value="8">教育及文化委員會</option>
+                            <option value="9">交通委員會</option>
+                            <option value="13">程序委員會</option>
+                            <option value="18">司法及法制委員會</option>
+                            <option value="12">社會福利及衛生環境委員會</option>
+                            <option value="23">紀律委員會</option>
+                            <option value="33">朝野黨團協商</option>
+                            <option value="16">經費稽核委員會</option>
+                            <option value="32">全院委員會</option>
+                            <option value="other">其他</option>
+                            <!-- <option value="other">其他</option> -->
+                        </select>
+                        <a onkeypress="comtDetail()" href="javascript:void(0)" onclick="comtDetail()" class="btn"><i
+                                class="icon-16-search"></i> 搜尋</a>
+                        <div class="float-right" id="advanceOption" style="display: none;">
+                            <label for="comtother">進階選擇 :</label>
+                            <select name="comtother" id="comtother">
+                                <option value="all">全部</option>
+                                <option value="3">科技及資訊委員會</option>
+                                <option value="11">法制委員會</option>
+                                <option value="10">司法委員會</option>
+                                <option value="4">國防委員會</option>
+                                <option value="7">預算及決算委員會</option>
+                                <option value="2">外交及僑務委員會</option>
+                                <option value="29">秘書處</option>
+                                <option value="31">人事處</option>
+                                <option value="34">朝野黨團協商(中國國民黨黨團)</option>
+                                <option value="35">朝野黨團協商(民主進步黨黨團)</option>
+                                <option value="36">朝野黨團協商(時代力量黨團)</option>
+                                <option value="37">朝野黨團協商(親民黨黨團)</option>
+                                <option value="39">朝野黨團協商(社會福利及衛生環境委員會)</option>
+                                <option value="40">朝野黨團協商(教育及文化委員會)</option>
+                                <option value="41">朝野黨團協商(經濟委員會)</option>
+                                <option value="42">朝野黨團協商(交通委員會)</option>
+                                <option value="38">朝野黨團協商(財政委員會)</option>
+                                <option value="44">朝野黨團協商(外交及國防委員會)</option>
+                                <option value="45">朝野黨團協商(司法及法制委員會)</option>
+                                <option value="43">朝野黨團協商(內政委員會)</option>
+                                <option value="30">資訊處</option>
+                                <option value="46">總務處</option>
+                                <option value="48">預算中心</option>
+                            </select>
+                        </div>
+                    </div>
+                    <ul class="table">
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-12-21?page=1">2022-12-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-12-19?page=1">2022-12-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-12-14?page=1">2022-12-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-12-08?page=1">2022-12-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-12-07?page=1">2022-12-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-12-05?page=1">2022-12-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-24?page=1">2022-11-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-21?page=1">2022-11-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-16?page=1">2022-11-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-10?page=1">2022-11-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-09?page=1">2022-11-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-07?page=1">2022-11-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-11-02?page=1">2022-11-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-31?page=1">2022-10-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-27?page=1">2022-10-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-26?page=1">2022-10-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-24?page=1">2022-10-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-20?page=1">2022-10-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-19?page=1">2022-10-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-17?page=1">2022-10-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-13?page=1">2022-10-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-12?page=1">2022-10-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-06?page=1">2022-10-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-10-05?page=1">2022-10-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-09-28?page=1">2022-09-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-26?page=1">2022-05-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-25?page=1">2022-05-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-16?page=1">2022-05-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-11?page=1">2022-05-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-09?page=1">2022-05-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-05?page=1">2022-05-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-04?page=1">2022-05-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-05-02?page=1">2022-05-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-28?page=1">2022-04-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-27?page=1">2022-04-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-21?page=1">2022-04-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-20?page=1">2022-04-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-14?page=1">2022-04-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-11?page=1">2022-04-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-04-07?page=1">2022-04-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-31?page=1">2022-03-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-28?page=1">2022-03-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-24?page=1">2022-03-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-23?page=1">2022-03-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-17?page=1">2022-03-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-16?page=1">2022-03-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-10?page=1">2022-03-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2022-03-07?page=1">2022-03-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-30?page=1">2021-12-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-29?page=1">2021-12-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-27?page=1">2021-12-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-23?page=1">2021-12-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-22?page=1">2021-12-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-20?page=1">2021-12-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-13?page=1">2021-12-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-08?page=1">2021-12-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-06?page=1">2021-12-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-02?page=1">2021-12-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-12-01?page=1">2021-12-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-29?page=1">2021-11-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-25?page=1">2021-11-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-24?page=1">2021-11-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-22?page=1">2021-11-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-17?page=1">2021-11-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-10?page=1">2021-11-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-08?page=1">2021-11-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-04?page=1">2021-11-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-11-03?page=1">2021-11-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-10-28?page=1">2021-10-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-10-25?page=1">2021-10-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-10-20?page=1">2021-10-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-10-18?page=1">2021-10-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-10-14?page=1">2021-10-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-10-06?page=1">2021-10-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-09-30?page=1">2021-09-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-09-27?page=1">2021-09-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-09-23?page=1">2021-09-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-05-20?page=1">2021-05-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-05-19?page=1">2021-05-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-05-10?page=1">2021-05-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-05-05?page=1">2021-05-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-05-03?page=1">2021-05-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-29?page=1">2021-04-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-28?page=1">2021-04-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-26?page=1">2021-04-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-19?page=1">2021-04-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-15?page=1">2021-04-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-12?page=1">2021-04-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-08?page=1">2021-04-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-07?page=1">2021-04-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-04-01?page=1">2021-04-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-29?page=1">2021-03-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-25?page=1">2021-03-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-24?page=1">2021-03-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-22?page=1">2021-03-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-18?page=1">2021-03-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-17?page=1">2021-03-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-15?page=1">2021-03-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-03-08?page=1">2021-03-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-01-14?page=1">2021-01-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2021-01-13?page=1">2021-01-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-28?page=1">2020-12-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-21?page=1">2020-12-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-16?page=1">2020-12-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-14?page=1">2020-12-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-09?page=1">2020-12-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-07?page=1">2020-12-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-03?page=1">2020-12-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-12-02?page=1">2020-12-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-30?page=1">2020-11-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-26?page=1">2020-11-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-25?page=1">2020-11-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-23?page=1">2020-11-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-19?page=1">2020-11-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-18?page=1">2020-11-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-16?page=1">2020-11-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-12?page=1">2020-11-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-11?page=1">2020-11-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-09?page=1">2020-11-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-05?page=1">2020-11-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-04?page=1">2020-11-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-11-02?page=1">2020-11-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-29?page=1">2020-10-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-28?page=1">2020-10-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-26?page=1">2020-10-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-22?page=1">2020-10-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-19?page=1">2020-10-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-15?page=1">2020-10-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-12?page=1">2020-10-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-07?page=1">2020-10-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-10-05?page=1">2020-10-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-09-28?page=1">2020-09-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-09-23?page=1">2020-09-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-28?page=1">2020-05-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-27?page=1">2020-05-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-21?page=1">2020-05-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-18?page=1">2020-05-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-13?page=1">2020-05-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-11?page=1">2020-05-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-07?page=1">2020-05-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-06?page=1">2020-05-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-05-04?page=1">2020-05-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-30?page=1">2020-04-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-27?page=1">2020-04-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-23?page=1">2020-04-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-22?page=1">2020-04-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-20?page=1">2020-04-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-16?page=1">2020-04-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-15?page=1">2020-04-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-09?page=1">2020-04-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-04-08?page=1">2020-04-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-30?page=1">2020-03-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-26?page=1">2020-03-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-25?page=1">2020-03-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-23?page=1">2020-03-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-19?page=1">2020-03-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-16?page=1">2020-03-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-11?page=1">2020-03-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-09?page=1">2020-03-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-04?page=1">2020-03-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2020-03-02?page=1">2020-03-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-11-27?page=1">2019-11-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-11-20?page=1">2019-11-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-11-11?page=1">2019-11-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-11-06?page=1">2019-11-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-30?page=1">2019-10-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-28?page=1">2019-10-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-24?page=1">2019-10-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-23?page=1">2019-10-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-21?page=1">2019-10-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-17?page=1">2019-10-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-16?page=1">2019-10-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-14?page=1">2019-10-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-07?page=1">2019-10-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-03?page=1">2019-10-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-10-02?page=1">2019-10-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-09-25?page=1">2019-09-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-09-23?page=1">2019-09-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-09-19?page=1">2019-09-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-29?page=1">2019-05-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-27?page=1">2019-05-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-23?page=1">2019-05-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-20?page=1">2019-05-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-16?page=1">2019-05-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-15?page=1">2019-05-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-13?page=1">2019-05-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-09?page=1">2019-05-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-06?page=1">2019-05-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-02?page=1">2019-05-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-05-01?page=1">2019-05-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-25?page=1">2019-04-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-24?page=1">2019-04-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-18?page=1">2019-04-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-17?page=1">2019-04-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-11?page=1">2019-04-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-10?page=1">2019-04-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-08?page=1">2019-04-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-04-01?page=1">2019-04-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-28?page=1">2019-03-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-27?page=1">2019-03-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-21?page=1">2019-03-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-20?page=1">2019-03-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-14?page=1">2019-03-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-13?page=1">2019-03-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-03-04?page=1">2019-03-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-02-27?page=1">2019-02-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-02-25?page=1">2019-02-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2019-02-23?page=1">2019-02-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-26?page=1">2018-12-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-24?page=1">2018-12-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-20?page=1">2018-12-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-19?page=1">2018-12-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-17?page=1">2018-12-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-13?page=1">2018-12-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-12?page=1">2018-12-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-10?page=1">2018-12-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-05?page=1">2018-12-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-12-03?page=1">2018-12-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-29?page=1">2018-11-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-28?page=1">2018-11-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-26?page=1">2018-11-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-21?page=1">2018-11-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-19?page=1">2018-11-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-14?page=1">2018-11-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-12?page=1">2018-11-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-08?page=1">2018-11-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-07?page=1">2018-11-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-05?page=1">2018-11-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-11-01?page=1">2018-11-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-29?page=1">2018-10-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-25?page=1">2018-10-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-24?page=1">2018-10-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-22?page=1">2018-10-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-18?page=1">2018-10-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-17?page=1">2018-10-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-11?page=1">2018-10-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-08?page=1">2018-10-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-04?page=1">2018-10-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-03?page=1">2018-10-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-10-01?page=1">2018-10-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-09-27?page=1">2018-09-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-07-03?page=1">2018-07-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-31?page=1">2018-05-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-30?page=1">2018-05-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-28?page=1">2018-05-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-23?page=1">2018-05-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-21?page=1">2018-05-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-17?page=1">2018-05-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-16?page=1">2018-05-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-14?page=1">2018-05-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-10?page=1">2018-05-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-09?page=1">2018-05-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-07?page=1">2018-05-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-03?page=1">2018-05-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-05-02?page=1">2018-05-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-30?page=1">2018-04-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-26?page=1">2018-04-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-25?page=1">2018-04-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-23?page=1">2018-04-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-19?page=1">2018-04-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-18?page=1">2018-04-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-16?page=1">2018-04-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-12?page=1">2018-04-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-11?page=1">2018-04-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-04-02?page=1">2018-04-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-03-26?page=1">2018-03-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-03-22?page=1">2018-03-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-03-21?page=1">2018-03-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-03-19?page=1">2018-03-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-03-15?page=1">2018-03-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2018-03-08?page=1">2018-03-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-27?page=1">2017-12-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-21?page=1">2017-12-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-20?page=1">2017-12-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-18?page=1">2017-12-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-14?page=1">2017-12-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-13?page=1">2017-12-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-06?page=1">2017-12-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-12-04?page=1">2017-12-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-30?page=1">2017-11-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-29?page=1">2017-11-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-27?page=1">2017-11-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-22?page=1">2017-11-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-20?page=1">2017-11-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-15?page=1">2017-11-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-09?page=1">2017-11-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-08?page=1">2017-11-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-02?page=1">2017-11-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-11-01?page=1">2017-11-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-26?page=1">2017-10-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-25?page=1">2017-10-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-23?page=1">2017-10-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-19?page=1">2017-10-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-18?page=1">2017-10-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-16?page=1">2017-10-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-12?page=1">2017-10-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-11?page=1">2017-10-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-05?page=1">2017-10-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-10-02?page=1">2017-10-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-09-27?page=1">2017-09-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-31?page=1">2017-05-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-22?page=1">2017-05-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-18?page=1">2017-05-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-17?page=1">2017-05-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-15?page=1">2017-05-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-11?page=1">2017-05-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-10?page=1">2017-05-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-08?page=1">2017-05-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-04?page=1">2017-05-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-03?page=1">2017-05-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-05-01?page=1">2017-05-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-26?page=1">2017-04-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-20?page=1">2017-04-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-19?page=1">2017-04-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-17?page=1">2017-04-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-13?page=1">2017-04-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-12?page=1">2017-04-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-04-05?page=1">2017-04-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-30?page=1">2017-03-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-27?page=1">2017-03-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-22?page=1">2017-03-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-20?page=1">2017-03-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-16?page=1">2017-03-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-13?page=1">2017-03-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-09?page=1">2017-03-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-08?page=1">2017-03-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-06?page=1">2017-03-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-02?page=1">2017-03-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-03-01?page=1">2017-03-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2017-02-23?page=1">2017-02-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-29?page=1">2016-12-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-28?page=1">2016-12-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-26?page=1">2016-12-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-22?page=1">2016-12-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-21?page=1">2016-12-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-14?page=1">2016-12-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-12?page=1">2016-12-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-08?page=1">2016-12-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-07?page=1">2016-12-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-05?page=1">2016-12-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-12-01?page=1">2016-12-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-30?page=1">2016-11-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-28?page=1">2016-11-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-24?page=1">2016-11-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-23?page=1">2016-11-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-21?page=1">2016-11-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-17?page=1">2016-11-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-16?page=1">2016-11-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-14?page=1">2016-11-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-10?page=1">2016-11-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-09?page=1">2016-11-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-07?page=1">2016-11-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-03?page=1">2016-11-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-11-02?page=1">2016-11-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-10-31?page=1">2016-10-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-10-27?page=1">2016-10-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-10-26?page=1">2016-10-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-10-24?page=1">2016-10-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-10-06?page=1">2016-10-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-10-05?page=1">2016-10-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-09-29?page=1">2016-09-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-09-22?page=1">2016-09-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-09-21?page=1">2016-09-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-09-19?page=1">2016-09-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-07-14?page=1">2016-07-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-07-13?page=1">2016-07-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-07-11?page=1">2016-07-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-07-07?page=1">2016-07-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-07-04?page=1">2016-07-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-29?page=1">2016-06-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-27?page=1">2016-06-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-23?page=1">2016-06-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-22?page=1">2016-06-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-20?page=1">2016-06-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-15?page=1">2016-06-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-13?page=1">2016-06-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-08?page=1">2016-06-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-06?page=1">2016-06-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-02?page=1">2016-06-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-06-01?page=1">2016-06-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-26?page=1">2016-05-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-25?page=1">2016-05-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-23?page=1">2016-05-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-19?page=1">2016-05-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-16?page=1">2016-05-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-12?page=1">2016-05-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-11?page=1">2016-05-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-09?page=1">2016-05-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-05?page=1">2016-05-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-04?page=1">2016-05-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-05-02?page=1">2016-05-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-04-25?page=1">2016-04-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-04-20?page=1">2016-04-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-04-18?page=1">2016-04-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-04-13?page=1">2016-04-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-04-11?page=1">2016-04-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-04-06?page=1">2016-04-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-31?page=1">2016-03-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-28?page=1">2016-03-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-23?page=1">2016-03-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-21?page=1">2016-03-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-17?page=1">2016-03-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-16?page=1">2016-03-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-14?page=1">2016-03-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-10?page=1">2016-03-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-09?page=1">2016-03-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-07?page=1">2016-03-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2016-03-02?page=1">2016-03-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-12-03?page=1">2015-12-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-12-02?page=1">2015-12-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-11-25?page=1">2015-11-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-11-23?page=1">2015-11-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-11-19?page=1">2015-11-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-11-18?page=1">2015-11-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-11-05?page=1">2015-11-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-11-04?page=1">2015-11-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-29?page=1">2015-10-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-28?page=1">2015-10-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-22?page=1">2015-10-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-21?page=1">2015-10-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-19?page=1">2015-10-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-14?page=1">2015-10-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-05?page=1">2015-10-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-10-01?page=1">2015-10-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-09-30?page=1">2015-09-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-09-24?page=1">2015-09-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-09-23?page=1">2015-09-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-09-17?page=1">2015-09-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-06-08?page=1">2015-06-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-06-03?page=1">2015-06-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-28?page=1">2015-05-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-27?page=1">2015-05-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-21?page=1">2015-05-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-20?page=1">2015-05-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-14?page=1">2015-05-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-11?page=1">2015-05-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-05-06?page=1">2015-05-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-30?page=1">2015-04-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-27?page=1">2015-04-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-20?page=1">2015-04-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-16?page=1">2015-04-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-13?page=1">2015-04-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-09?page=1">2015-04-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-02?page=1">2015-04-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-04-01?page=1">2015-04-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-26?page=1">2015-03-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-25?page=1">2015-03-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-19?page=1">2015-03-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-16?page=1">2015-03-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-11?page=1">2015-03-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-09?page=1">2015-03-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-03-05?page=1">2015-03-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-01-15?page=1">2015-01-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-01-12?page=1">2015-01-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-01-07?page=1">2015-01-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2015-01-05?page=1">2015-01-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-31?page=1">2014-12-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-29?page=1">2014-12-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-24?page=1">2014-12-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-18?page=1">2014-12-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-10?page=1">2014-12-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-04?page=1">2014-12-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-12-03?page=1">2014-12-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-20?page=1">2014-11-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-19?page=1">2014-11-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-17?page=1">2014-11-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-13?page=1">2014-11-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-12?page=1">2014-11-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-06?page=1">2014-11-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-11-03?page=1">2014-11-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-29?page=1">2014-10-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-27?page=1">2014-10-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-23?page=1">2014-10-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-20?page=1">2014-10-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-16?page=1">2014-10-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-15?page=1">2014-10-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-09?page=1">2014-10-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-08?page=1">2014-10-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-06?page=1">2014-10-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-02?page=1">2014-10-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-10-01?page=1">2014-10-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-09-25?page=1">2014-09-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-09-24?page=1">2014-09-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-09-22?page=1">2014-09-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-09-17?page=1">2014-09-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-29?page=1">2014-05-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-28?page=1">2014-05-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-19?page=1">2014-05-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-15?page=1">2014-05-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-12?page=1">2014-05-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-08?page=1">2014-05-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-07?page=1">2014-05-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-05-05?page=1">2014-05-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-30?page=1">2014-04-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-28?page=1">2014-04-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-24?page=1">2014-04-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-23?page=1">2014-04-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-21?page=1">2014-04-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-16?page=1">2014-04-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-14?page=1">2014-04-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-09?page=1">2014-04-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-07?page=1">2014-04-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-03?page=1">2014-04-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-04-02?page=1">2014-04-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-31?page=1">2014-03-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-17?page=1">2014-03-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-13?page=1">2014-03-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-12?page=1">2014-03-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-10?page=1">2014-03-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-06?page=1">2014-03-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-05?page=1">2014-03-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-03-03?page=1">2014-03-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-01-13?page=1">2014-01-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2014-01-06?page=1">2014-01-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-26?page=1">2013-12-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-23?page=1">2013-12-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-18?page=1">2013-12-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-16?page=1">2013-12-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-12?page=1">2013-12-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-11?page=1">2013-12-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-05?page=1">2013-12-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-04?page=1">2013-12-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-12-02?page=1">2013-12-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-28?page=1">2013-11-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-25?page=1">2013-11-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-21?page=1">2013-11-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-20?page=1">2013-11-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-18?page=1">2013-11-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-14?page=1">2013-11-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-13?page=1">2013-11-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-06?page=1">2013-11-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-11-04?page=1">2013-11-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-31?page=1">2013-10-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-28?page=1">2013-10-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-23?page=1">2013-10-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-21?page=1">2013-10-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-17?page=1">2013-10-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-16?page=1">2013-10-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-07?page=1">2013-10-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-10-03?page=1">2013-10-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-09-30?page=1">2013-09-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-09-25?page=1">2013-09-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-09-23?page=1">2013-09-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-29?page=1">2013-05-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-27?page=1">2013-05-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-23?page=1">2013-05-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-22?page=1">2013-05-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-16?page=1">2013-05-16</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-15?page=1">2013-05-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-13?page=1">2013-05-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-09?page=1">2013-05-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-06?page=1">2013-05-06</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-05-02?page=1">2013-05-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-29?page=1">2013-04-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-25?page=1">2013-04-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-24?page=1">2013-04-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-22?page=1">2013-04-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-18?page=1">2013-04-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-15?page=1">2013-04-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-11?page=1">2013-04-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-10?page=1">2013-04-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-03?page=1">2013-04-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-04-01?page=1">2013-04-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-28?page=1">2013-03-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-27?page=1">2013-03-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-25?page=1">2013-03-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-21?page=1">2013-03-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-20?page=1">2013-03-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-18?page=1">2013-03-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-14?page=1">2013-03-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-13?page=1">2013-03-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-03-11?page=1">2013-03-11</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-01-10?page=1">2013-01-10</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-01-09?page=1">2013-01-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-01-07?page=1">2013-01-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2013-01-02?page=1">2013-01-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-27?page=1">2012-12-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-26?page=1">2012-12-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-24?page=1">2012-12-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-20?page=1">2012-12-20</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-19?page=1">2012-12-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-17?page=1">2012-12-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-13?page=1">2012-12-13</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-12?page=1">2012-12-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-12-05?page=1">2012-12-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-22?page=1">2012-11-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-21?page=1">2012-11-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-15?page=1">2012-11-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-12?page=1">2012-11-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-07?page=1">2012-11-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-05?page=1">2012-11-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-11-01?page=1">2012-11-01</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-31?page=1">2012-10-31</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-29?page=1">2012-10-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-24?page=1">2012-10-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-22?page=1">2012-10-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-18?page=1">2012-10-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-17?page=1">2012-10-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-08?page=1">2012-10-08</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-04?page=1">2012-10-04</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-10-03?page=1">2012-10-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-09-27?page=1">2012-09-27</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-09-26?page=1">2012-09-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-09-24?page=1">2012-09-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-06-07?page=1">2012-06-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-30?page=1">2012-05-30</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-28?page=1">2012-05-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-24?page=1">2012-05-24</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-21?page=1">2012-05-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-17?page=1">2012-05-17</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-14?page=1">2012-05-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-09?page=1">2012-05-09</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-07?page=1">2012-05-07</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-05-03?page=1">2012-05-03</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-04-25?page=1">2012-04-25</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-04-23?page=1">2012-04-23</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-04-19?page=1">2012-04-19</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-04-18?page=1">2012-04-18</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-04-05?page=1">2012-04-05</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-04-02?page=1">2012-04-02</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-29?page=1">2012-03-29</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-28?page=1">2012-03-28</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-26?page=1">2012-03-26</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-22?page=1">2012-03-22</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-21?page=1">2012-03-21</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-15?page=1">2012-03-15</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-14?page=1">2012-03-14</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-12?page=1">2012-03-12</a></li>
+                        <li><a href="/Demand/ListCommittee/ListVideo/17/2012-03-07?page=1">2012-03-07</a></li>
+                    </ul>
+
+                    <div class="data-list committee-data-list" style="display:none">
+                        <p class="results-info">
+                            搜尋結果：主辦單位=<span id="spanComt" class="number"></span>, 日期=<span id="spanDate"
+                                class="number"></span>之搜尋結果為 <span id="spanTotal" class="number"></span> 筆
+                        </p>
+                        <div id="fulltitle">
+                            <h4><i class="icon-28-movie"></i><span id="spanDateTmpf" class="number"></span> 會議完整影片</h4>
+                        </div>
+
+                        <div class="committee-data-info">
+
+                        </div>
+                        <div class="clip-list-tmp" style="display: none;">
+                            <h4><i class="icon-28-movie"></i><span id="spanDateTmp" class="number"></span> 委員發言片段</h4>
+                        </div>
+                        <div class="clip-list">
+                            <ul id="clipUl"></ul>
+                        </div>
+                        <div class="ivod-pagination" id="ivod-pagination"></div>
+                    </div>
+                    <!-- [Contents End] -->
+                </div>
+            </div>
+            <!--end main-content-->
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-text">
+                <p>地址：(100220)台北市中正區中山南路1號 電話：(02)2358-5858</p>
+                <p>建議瀏覽環境：IE 9.0、Firefox 24或Chrome 28以上 解析度1024*768以上</p>
+                <p>網站瀏覽次數：<span class="counter">12758157</span></p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="https://ivod.ly.gov.tw/Link" title="相關連結">相關連結</a></li>
+                    <li><a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=10771" title="隱私權政策">隱私權政策</a></li>
+                    <li><a href="https://ivod.ly.gov.tw/Copyright" title="著作權聲明">著作權聲明</a></li>
+                    <li><a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=10770" title="資訊安全政策">資訊安全政策</a></li>
+                    <li><a href="https://ivod.ly.gov.tw/Manual" title="使用手冊">使用手冊</a></li>
+                </ul>
+            </div>
+            <div class="footer-Copyright">
+                <p><a target="_blank" href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=216"
+                        title="立法院網站技術建言">立法院網站技術建言</a> Copyright © 2017 中華民國立法院. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            $(window).on("load resize", function (e) {
+                var $window = $(window);
+
+                function checkWidth() {
+                    var windowsize = $window.width();
+                    if (windowsize < 1141) {
+                        $('#mobile-btn').addClass('active');
+
+                    } else {
+                        $('.mobile-menu').css({
+                            right: -250
+                        }, 300).removeClass('btn-open');
+                        $('#mobile-btn').removeClass('active');
+                        $('#mobile-btn').addClass('word');
+                        if ($('.mobile-bg').hasClass('active')) {
+                            $('.mobile-bg').removeClass('active');
+                        }
+                    }
+                }
+                checkWidth();
+                $(window).resize(checkWidth);
+                var $inwidth = $('.contents').width();
+                $('.statistics-table-wrap').css({
+                    "width": $inwidth
+                })
+            })
+        });
+    </script>
+    <div id="mobile-btn" class="word active"><span></span><span></span><span></span></div>
+    <div class="accordion mobile-menu" id="mobile">
+        <p>立法院議事轉播IVOD<br>網際網路多媒體隨選視訊系統</p>
+        <dl>
+            <dt class="no-child"><a title="最新實況" href="https://ivod.ly.gov.tw/Live">最新實況</a></dt>
+        </dl>
+        <dl>
+            <dt class="no-child"><a title="會議預報" href="https://ivod.ly.gov.tw/Forecast">會議預報</a></dt>
+        </dl>
+        <dl>
+            <dt class="no-child"><a title="會議隨選" href="https://ivod.ly.gov.tw/Demand">會議隨選</a></dt>
+        </dl>
+        <dl>
+            <dt class="no-child"><a title="新媒體" href="https://ivod.ly.gov.tw/Link/NewMedia">新媒體</a></dt>
+        </dl>
+        <dl>
+            <dt class="no-child"><a title="網站導覽" href="https://ivod.ly.gov.tw/Map">網站導覽</a></dt>
+        </dl>
+        <dl>
+            <dt class="no-child"><a title="常見問題" href="https://ivod.ly.gov.tw/Faq">常見問題</a></dt>
+        </dl>
+        <dl>
+            <dt class="no-child"><a title="公告事項" href="https://ivod.ly.gov.tw/News">公告事項</a></dt>
+        </dl>
+        <!-- <dl>
+    <dt class="no-child"><a title="洽詢事項" href="https://ivod.ly.gov.tw/Question">洽詢事項</a></dt>
+</dl> -->
+        <dl>
+            <dt class="no-child"><a title="統計資訊" href="https://ivod.ly.gov.tw/Statistics">統計資訊</a></dt>
+        </dl>
+        <!--  -->
+        <dl>
+            <dt class="no-child"><a title="相關連結" href="https://ivod.ly.gov.tw/Link">相關連結</a></dt>
+        </dl>
+        <!-- <dl>
+    <dt class="no-child"><a title="隱私權政策" href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=10771" target="_blank">隱私權政策</a></dt>
+</dl>
+<dl>
+    <dt class="no-child"><a title="著作權聲明" href="https://ivod.ly.gov.tw/Copyright">著作權聲明</a></dt>
+</dl>
+<dl>
+    <dt class="no-child"><a title="資訊安全政策" href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=10770" target="_blank">資訊安全政策</a></dt>
+</dl> -->
+        <dl>
+            <dt class="no-child"><a title="使用手冊" href="https://ivod.ly.gov.tw/Manual">使用手冊</a></dt>
+        </dl>
+
+        <dl>
+            <dt class="no-child"><a title="回首頁" href="https://ivod.ly.gov.tw/index">回首頁</a></dt>
+        </dl>
+    </div>
+    <div class="mobile-bg"></div>
+</body>
+<link rel="stylesheet" type="text/css" href="hello.week.min.css" />
+<link rel="stylesheet" type="text/css" href="hello.week.theme.min.css" />
+
+<script type="text/javascript" src="hello.week.min.js"></script>
+
+<script>
+    new HelloWeek();
+    const dates  = document.querySelectorAll('ul.table li')
+    if(dates) {
+         
+        dates.forEach(function(element) {
+            var link = element.getElementsByTagName('a')
+            console.log(link)
+        })
+    }
+
+</script>
+
+</html>
