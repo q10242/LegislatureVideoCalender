@@ -4,7 +4,7 @@
     "description": "立法院-隨選視訊系統，以主辦單位查詢的日期排版套件",
     "version": "1.0",
     "action": {
-        "default_icon": "hello_extensions.png"
+        "default_icon": "icon.png"
     },
     "content_scripts": [
     {
