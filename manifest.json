@@ -1,15 +1,15 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
+    "name": "Legislature Video Calender Extension",
+    "description": "立法院-隨選視訊系統，以主辦單位查詢的日期排版套件",
     "version": "1.0",
     "action": {
-        "default_popup": "hello.html",
         "default_icon": "hello_extensions.png"
     },
     "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "css": ["css/theme-basic.css"],
+      "js": ["scripts/bundle.js","scripts/content.js"],
       "matches": [
         "https://ivod.ly.gov.tw/Demand/ListCommittee/ListDate/*"
       ]
