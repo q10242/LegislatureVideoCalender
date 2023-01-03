@@ -1,6 +1,6 @@
 "use strict";
 
-monthChanged = false
+let monthChanged = false
 function onclickEvent(Date, filteredDateEvents) {
    
     var event = filteredDateEvents[0]
@@ -9,16 +9,17 @@ function onclickEvent(Date, filteredDateEvents) {
         return false
     }
     return false
-}   
+}
+
 const dates  = document.querySelectorAll('ul.table li')
 if(dates) {
-    calenderNode = document.createElement("div")
-    calenderExplan = document.createElement("h4")
+    let calenderNode = document.createElement("div")
+    let calenderExplan = document.createElement("h4")
     calenderExplan.setAttribute('style', 'padding-left:50px;')
     calenderExplan.innerHTML = "日期下有黑點即為當日有影片，點選另開分頁"
     calenderNode.setAttribute('id', 'color-calendar')
     calenderNode.setAttribute('style', 'padding-left:30px;')
-    table = document.querySelector('ul.table')
+    let table = document.querySelector('ul.table')
     table.parentElement.appendChild(calenderNode)
     table.parentElement.appendChild(calenderExplan)
     table.remove()
@@ -37,7 +38,7 @@ if(dates) {
             monthChanged = true
         },
     });
-    events_data = []
+    const events_data = []
     
     dates.forEach(function(element) {
         var link = element.getElementsByTagName('a')[0]
@@ -49,7 +50,6 @@ if(dates) {
             date: date,
             to: video_link
             })
-        
     })
     calender.setEventsData(events_data)
     monthChanged = false
