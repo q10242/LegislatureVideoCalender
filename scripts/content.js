@@ -1,3 +1,4 @@
+"use strict";
 
 monthChanged = false
 function onclickEvent(Date, filteredDateEvents) {
